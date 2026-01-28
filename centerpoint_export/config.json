@@ -1,0 +1,61 @@
+{
+  "input": "path/to/onnx_model/pointpillars.onnx", 
+  "output_dir": "./output_opt",
+  "output_name": "centerpoint.axmodel",
+  "model_type": "ONNX",
+  "target_hardware": "AX650",
+  "npu_mode": "NPU3",
+
+  "input_shapes": "input.1:1x10x30000x20;indices_input:1x30000x2",
+
+  "quant": {
+    "input_configs": [
+      {
+        "tensor_name": "input.1",
+        "calibration_dataset": "path/to/features.tar.gz",
+        "calibration_format": "Numpy",
+        "calibration_size": 32
+      },
+      {
+        "tensor_name": "indices_input",
+        "calibration_dataset": "path/to/indices.tar.gz",
+        "calibration_format": "Numpy",
+        "calibration_size": 32
+      }
+    ],
+    "calibration_method": "MSE",
+    "precision_analysis": true,
+    "precision_analysis_method": "EndToEnd",
+    "enable_smooth_quant": true,
+    "smooth_quant_threshold": 2e-1,
+    "smooth_quant_strength": 6e-1,
+    "layer_configs": [  
+      {
+        "layer_names": ["ScatterND_1"],
+        "data_type": "FP32",
+        "output_data_type": "FP32"
+      },
+      {
+        "layer_names": ["/neck/blocks.0/blocks.0.3/Relu"],
+        "data_type": "FP32",
+        "output_data_type": "FP32"
+      }
+    ]
+  },
+
+
+  "input_processors": [
+    {
+      "tensor_name": "input.1",
+      "src_dtype": "FP32"
+    },
+    {
+      "tensor_name": "indices_input",
+      "src_dtype": "S32"
+    }
+  ],
+
+  "compiler": {
+    "check": 0
+  }
+}

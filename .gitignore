@@ -1,0 +1,114 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# debug information files
+*.dwo
+
+# Build directories
+build/
+build_*/
+build_ax650/
+build_ax637/
+install/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Dependencies (auto-downloaded)
+3rdparty/
+opencv-*-aarch64/
+opencv-arm-linux/
+ax_bsp_sdk/
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+*.egg
+.ipynb_checkpoints/
+venv/
+.venv/
+env/
+
+# Model files (large files)
+*.axmodel
+*.onnx
+*.pth
+*.pt
+*.bin
+*.engine
+
+
+# Data files
+*.npy
+*.npz
+*.pkl
+*.pickle
+
+
+# Output directories
+output/
+results/
+logs/
+*.log
+
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Compressed files (if downloaded)
+*.tar.gz
+*.tar.xz
+*.zip
+*.tgz
